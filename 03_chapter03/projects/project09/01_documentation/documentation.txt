@@ -1,0 +1,71 @@
+==================================== Basic Info ========================================
+Author: Md. Tanvir Mahtab
+Date: 2022-02-26
+Purpose: This file contains a brief documentation of the project.
+
+==================================== Problem ===========================================
+Write a program that receives a series of numbers from the user and allows the
+user to press the enter key to indicate that he or she is finished providing inputs.
+After the user presses the enter key, the program should print the sum of the
+numbers and their average.
+
+==================================== Analysis and Design ===============================
+We can design a function to compute the sum and average of the given series of numbers.
+The pseudocode of the function can be expressed as follows.
+
+FUNCTION sum_and_average()
+    // Declare a variable to count
+    // the input numbers
+    SET count to 0
+
+    // Declare a variable to
+    // hold the sum of input numbers
+    SET the_sum to 0
+
+    // Declare a variable to
+    // hold the average of input numbers
+    SET the_average to 0
+
+    // Take inputs and
+    // compute the sum and average
+    WHILE TRUE
+        READ the input as response PROMPTING WITH "Enter a number or press the Enter/Return key to get the results: "
+        
+        // Pressing only the Enter/Return key
+        // is equivalent to inputting an empty string
+        IF response EQUAL TO ""
+            BREAK
+        ELSE
+            // Update the count of the number
+            SET count to count + 1
+
+            // Convert the response to a
+            // floating-point number
+            SET number to FLOAT(response)
+            
+            // Update the sum and average
+            SET the_sum to the_sum + number
+            SET the_average to the_sum / count
+        END IF
+    END WHILE
+
+    // Display the sum and average
+    PRINT "The sum is:", the_sum
+    PRINT "The average is:", the_average
+END FUNCTION
+
+Now, we would like to design a main function from which the sum_and_average function will
+be called. The pseudocode of the main function is as follows.
+
+FUNCTION main()
+    // Call the function to
+    // take inputs, compute the sum and average,
+    // and display the results
+    CALL sum_and_average
+END FUNCTION
+
+Finally, there would be an execution point of the program as follows.
+
+CALL main
+
+========================================================================================

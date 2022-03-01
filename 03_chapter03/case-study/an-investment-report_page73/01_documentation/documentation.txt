@@ -1,0 +1,116 @@
+================================= Basic Info ========================================
+Author (Motivated by the book's author): Md. Tanvir Mahtab
+Date: 2022-01-28
+Purpose: This file contains a brief documentation of the project.
+
+================================= Problem ===========================================
+Write a program that computes an investment report.
+
+================================= Analysis ==========================================
+The inputs to this program are the following:
+ • An initial amount to be invested (a floating-point number)
+ • A period of years (an integer)
+ • An interest rate (a percentage expressed as an integer)
+
+The program uses a simplified form of compound interest, in which the interest is
+computed once each year and added to the total amount invested. The output of
+the program is a report in tabular form that shows, for each year in the term of the
+investment, the year number, the initial balance in the account for that year, the 
+interest earned for that year, and the ending balance for that year. The columns of the
+table are suitably labeled with a header in the first row. Following the output of the
+table, the program prints the total amount of the investment balance and the total
+amount of interest earned for the period. The proposed user interface is shown bellow.
+
+Enter the investment amount: 10000.00
+Enter the number of years: 5
+Enter the rate as a %: 5
+Year    Starting balance    Interest    Ending balance
+   1            10000.00      500.00          10500.00
+   2            10500.00      525.00          11025.00
+   3            11025.00      551.25          11576.25
+   4            11576.25      578.81          12155.06
+   5            12155.06      607.75          12762.82
+Ending balance: $12762.82
+Total interest earned: $2762.82
+
+================================= Design =============================================
+The four principal parts of the program perform the following tasks:
+    1. Receive the user’s inputs and initialize data.
+    2. Display the table’s header.
+    3. Compute the results for each year, and display them as a row in the table.
+    4. Display the totals.
+
+The third part of the program, which computes and displays the results, is a loop.
+These four principal parts can be combined and designed under a single function. The 
+pseudocode of the function can be expressed (without the details related to formatting 
+the outputs) as follows.
+
+FUNCTION get_investment_report()
+    // Recieve the user's inputs and initialize data
+    // The starting balance should be a floating-point number
+    READ the starting balance as start_balance
+    
+    // The number of years should be an integer
+    READ the number of years as years
+    
+    // The interest rate should be a percentage expressed as an integer
+    READ the interest rate as rate
+
+    // Convert the rate to a decimal number
+    SET rate to rate/100
+
+    // Initialize the total interest
+    SET total interest as total_interest to 0.0
+
+    // Display the header of the table
+    PRINT "Year", "Starting balance", "Interest", "Ending balance"
+
+    // Compute and display the results for each year
+    FOR each year of years
+        // Compute the interest
+        COMPUTE interest as start_balance * rate
+        
+        // Compute the ending balance
+        COMPUTE end_balance as start_balance + interest
+
+        // Display the year, starting balance, interest, and ending balance
+        PRINT year, start_balance, interest, end_balance
+
+        // Update the starting balance
+        SET start_balance to end_balance
+
+        // Update the total interest
+        SET total_interest to total_interest + interest
+    END FOR
+    
+    // Display the totals for the period
+    PRINT end_balance
+    PRINT total_interest
+END FUNCTION
+
+Note that starting balance refers to the original input balance and also to the balance
+that begins each year of the term. Ignoring the details of the output at this point allows
+us to focus on getting the computations correct. We can translate this pseudocode to
+a Python program to check our computations. A rough draft of a program is called a 
+prototype . Once we are confident that the prototype is producing the correct numbers,
+we can return to the design and work out the details of formatting the outputs.
+The format of the outputs is guided by the requirement that they be aligned nicely in
+columns. We use a format string to right-justify all of the numbers on each row of out-
+put. We also use a format string for the string labels in the table’s header. After some
+trial and error, we come up with field widths of 4, 18, 10, and 16 for the year, 
+start_balance, interest, and end_balance, respectively. We can also use these widths
+in the format string for the header.
+
+We would like to design a main function from which the get_investment_report function 
+will be called. The pseudocode of the main function is as follows.
+
+FUNCTION main()
+    // Call the function to get investment report
+    CALL get_investment_report
+END FUNCTION
+
+Finally, there would be an execution point of the program as follows.
+
+CALL main
+
+=====================================================================================

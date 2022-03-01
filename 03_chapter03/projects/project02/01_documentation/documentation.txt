@@ -1,0 +1,87 @@
+================================= Basic Info ===========================================
+Author: Md. Tanvir Mahtab
+Date: 2022-02-09
+Purpose: This file contains a brief documentation of the project.
+
+================================= Problem ==============================================
+Write a program that accepts the lengths of three sides of a triangle as inputs.
+The program output should indicate whether or not the triangle is a right tri-
+angle. Recall from the Pythagorean theorem that in a right triangle, the square of
+one side equals the sum of the squares of the other two sides.
+
+================================= Analysis =============================================
+In order to check if a triangle is a right triangle, by using Pythagorean theorem, we 
+need to specify the possible hypotenuse (i.e. the longest side) of the triangle. Since,
+according to the Pythagorean theorem,
+
+(hypotenuse)^2 = (one adjacent side)^2 + (another adjacent side)^2
+
+Therefore, after taking the inpts first we have to specify the possible hypotenuse.
+Then we have to check if the above Pythagorean formula is true for the given inputs.
+If the formula turns to be true, the triangle is a right triangle, otherwise not.
+
+================================ Design ================================================
+We can design a function to check if a triangle is a right triangle. The pseudocode of 
+the function can be expressed as follows.
+
+FUNCTION is_right_triangle(FLOAT side_a, FLOAT side_b, FLOAT side_c)
+    // Specify the hypotenuse (longest side)
+    IF side_a GREATER THAN side_b
+        IF side_a GREATER THAN side_c
+            SET hypotenuse to side_a
+        ELSE
+            SET hypotenuse to side_c
+        END IF
+    ELSE
+        IF side_b GREATER THAN side_c
+            SET hypotenuse to side_b
+        ELSE
+            SET hypotenuse to side_c
+        END IF
+    END IF
+
+    // Seperate the lengths of the adjacent sides
+    // from the possible hypotenuse (i.e. take a list/collection
+    // of the lengths of the sides excluding the one which
+    // equals to the possibe hypotenuse)
+    SET sides_list to the list of side_a, side_b, side_c
+    REMOVE hypotenuse from sides_list
+    SET adjacent_sides to sides_list
+
+    // Check if the Pythagorean formula holds true
+    // for the given inputs and reurns Boolean type
+    // True or False based on it
+    IF (hypotenuse)^2 EQUAL TO (adjacent_sides[0])^2 + (adjacent_sides[1])^2
+        RETURN TRUE
+    ELSE
+        RETURN FALSE
+    END IF
+END FUNCTION
+
+Now, we would like to design a main function from which the is_right_triangle
+function will be called. The pseudocode of the main function is as follows.
+
+FUNCTION main()
+    // Take the lengths of the sides of the triangle
+    // as inpts (The inputs should be floating-point numbers)
+    READ the length of one side of the triangle as side_a
+    READ the length of another side as side_b
+    READ the length of the remaining side as side_c
+    
+    // Call the function to check
+    // if the triangle is a right triangle
+    CALL is_right_triangle with side_a, side_b, side_c RETURNING triangle_status
+
+    // Display if the triangle is a right triangle
+    IF triangle_status EQUAL TO TRUE
+        PRINT "The triangle is a right triangle."
+    ELSE
+        PRINT "The triangle is not a right triangle."
+    END IF
+END FUNCTION
+
+Finally, there would be an execution point of the program as follows.
+
+CALL main
+
+=====================================================================================

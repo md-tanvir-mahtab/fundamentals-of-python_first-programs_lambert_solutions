@@ -1,0 +1,132 @@
+==================================== Basic Info ========================================
+Author: Md. Tanvir Mahtab
+Date: 2022-02-24
+Purpose: This file contains a brief documentation of the project.
+
+==================================== Problem ===========================================
+The greatest common divisor of two positive integers, A and B, is the largest
+number that can be evenly divided into both of them. Euclid’s algorithm can be
+used to find the greatest common divisor (GCD) of two positive integers. You
+can use this algorithm in the following manner:
+
+a. Compute the remainder of dividing the larger number by the smaller
+number.
+b. Replace the larger number with the smaller number and the smaller number
+with the remainder.
+c. Repeat this process until the smaller number is zero.
+
+The larger number at this point is the GCD of A and B. Write a program that lets
+the user enter two integers and then prints each step in the process of using the
+Euclidean algorithm to find their GCD.
+
+==================================== Analysis ==========================================
+According to the Euclidean algorithm the steps of finding GCD of two positive integers
+are:
+
+a. Compute the remainder of dividing the larger number by the smaller
+number.
+b. Replace the larger number with the smaller number and the smaller number
+with the remainder.
+c. Repeat this process until the smaller number is zero.
+
+The larger number at this point is the GCD of the two numbers.
+
+==================================== Design ============================================
+We can design the process (Euclidean  algorithm) to compute the GCD of two positive 
+integers as a function. The pseudocode of the function can be expressed as follows.
+
+FUNCTION gcd(INT larger, INT smaller)
+    // Keep copies of the given numbers
+    SET given_larger to larger
+    SET given_smaller to smaller
+
+    // Declare a variable to
+    // track the step number
+    SET step to 0
+
+    // Execute the Euclidean algorithm
+    WHILE smaller NOT EQUAL TO 0
+        // Specify the current step number
+        SET step to step + 1
+        
+        // Display the current step number
+        PRINT "-------- Step", step, "----------"
+
+        // Display the initial values
+        // of larger and smaller numbers
+        // of the current step
+        PRINT "Initial larger number:", larger
+        PRINT "Initial smaller number:", smaller
+
+        // Compute the remainder of dividing
+        // the larger number by the smaller
+        // number (Here "%" indicates the
+        // modulo operator)
+        SET remainder to larger % smaller
+
+        // Display the remainder
+        PRINT "Remainder:", remainder
+
+        // Update the larger and smaller numbers
+        SET larger to smaller
+        SET smaller to remainder
+
+        // Display the final values
+        // of larger and smaller numbers
+        // of the current step
+        PRINT "Final larger number:", larger
+        PRINT "Final smaller number", smaller
+    END WHILE
+
+    // Display the GCD
+    PRINT "The GCD of", given_larger, "and", given_smaller, "is", larger
+END FUNCTION
+
+Now, we would like to design a main function from which the gcd function will be called.
+The pseudocode of the main function is as follows.
+
+FUNCTION main()
+    // Take inputs
+    WHILE TRUE
+        READ a positive integer as first_number
+        
+        // Check if the number is really positive
+        IF first_number GREATER THAN 0
+            BREAK
+        ELSE
+            PRINT "The number must be a positive integer."
+        END IF
+    END WHILE
+
+    WHILE TRUE
+        READ a positive integer as second_number
+        
+        // Check if the number is really positive
+        IF second_number GREATER THAN 0
+            BREAK
+        ELSE
+            PRINT "The number must be a positive integer."
+        END IF
+    END WHILE
+
+    // Specify the larger and smaller numbers
+    IF first_number GREATER THAN second_number
+        SET larger to first_number
+        SET smaller to second_number
+    ELSE IF first_number LESS THAN second_number
+        SET larger to second_number
+        SET smaller to first_number
+    ELSE
+        SET larger to first_number
+        SET smaller to second_number
+    END IF
+
+    // Call the function to compute GCD
+    CALL gcd with larger, smaller
+END FUNCTION
+
+Finally there would be an execution point of the program as follows.
+
+CALL main
+
+=====================================================================================

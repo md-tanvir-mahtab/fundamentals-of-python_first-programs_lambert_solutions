@@ -1,0 +1,97 @@
+================================== Basic Info ==========================================
+Author: Md. Tanvir Mahtab
+Date: 2022-02-12
+Purpose: This file contains a brief documentation of the project.
+
+================================== Problem =============================================
+A local biologist needs a program to predict population growth. The inputs
+would be the initial number of organisms, the rate of growth (a real number
+greater than 0), the number of hours it takes to achieve this rate, and a number
+of hours during which the population grows. For example, one might start with a
+population of 500 organisms, a growth rate of 2, and a growth period to achieve
+this rate of 6 hours. Assuming that none of the organisms die, this would imply
+that this population would double in size every 6 hours. Thus, after allowing
+6 hours for growth, we would have 1000 organisms, and after 12 hours, we would
+have 2000 organisms. Write a program that takes these inputs and displays a pre-
+diction of the total population.
+
+================================= Analysis =============================================
+Let,
+Initial population = population
+Growth rate = growth_rate
+Growth period = growth_period
+Total time = total_time
+
+The number of full growth times can be calculated by the following formula (Note: Here 
+the division is an integer division).
+
+full_growth_times = total_time // growth_period
+
+The population after each of the full growth times can be calculated by the following
+formula.
+
+population = population * growth_rate
+
+The partial growth time can be calculated by the following formula (Note: Here, % indi-
+cates the modulo operator).
+
+partial_growth_time = total_time % growth_period
+
+The population at partial_growth_time can ba calculated by the following expression.
+(Note: Here the "population in the expression is the population after full growth time")
+
+population * (partial_growth_time / growth_period)
+
+Finally, the final population can be found by adding the population after full growth 
+times with the population at partial growth time.
+
+================================= Design ===============================================
+Based on the formulas discussed in the analysis phase we can design a function to cal-
+culate the final population. The pseudocode of the function can be expressed as follows.
+
+FUNCTION calculate_final_population(INT population, FLOAT growth_rate, FLOAT growth_period, FLOAT total_time)
+    // Compute the number of full growth times
+    // Here "//" indicates an integer division
+    SET full_growth_times to total_time // growth_period
+
+    // Compute population after full growth times
+    WHILE full_growth_times GREATER THAN 0
+        SET population to population * growth_rate
+        SET full_growth_times to full_growth_times - 1
+    END WHILE
+
+    // Compute partial growth time
+    // Here "%" is the modulo operator
+    SET partial_growth_time to total_time % growth_period
+
+    // Compute population at partial growth time
+    SET partial_population to population * (partial_growth_time / growth_period)
+
+    // Return the final population
+    RETURN population + partial_population
+    
+END FUNCTION
+
+Now, we would like to design a main function from which the calculate_final_population 
+function will be called. The pseudocode of the main function is as follows.
+
+FUNCTION main()
+    // Take inputs
+    READ initial population as initial_population
+    READ growth rate as growth_rate
+    READ growth period as growth_period
+    READ total time as total_time
+
+    // Call the function to calculate
+    // the final populatin
+    CALL calculate_final_population with initial_population, growth_rate, growth_period, total_time RETURNING final_population
+
+    // Display the final populatin
+    PRINT "The final population will be", final_population
+END FUNCTION
+
+Finally, there would be an execution point of the program as follows.
+
+CALL main
+
+=========================================================================================

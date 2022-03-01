@@ -1,0 +1,11 @@
+Author: Md. Tanvir Mahtab
+Date: 2022-02-08
+
+Question:
+    What happens when the programmer forgets to update the loop control variable in
+    a while loop?
+
+Answer:
+    If a programmer forgets to update the loop control variable in a "while" loop, the 
+    continuation condition of the loop always remains "True". Consequently, the loop
+    turns to be an infinite loop.

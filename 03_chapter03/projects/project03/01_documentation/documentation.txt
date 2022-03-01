@@ -1,0 +1,111 @@
+================================ Basic Info ============================================
+Author: Md. Tanvir Mahtab
+Date: 2022-02-12
+Purpose: This file contains a brief documentation of the  project.
+
+================================ Problem ===============================================
+Modify the guessing-game program of Section 3.5 so that the user thinks of a
+number that the computer must guess. The computer must make no more than
+the minimum number of guesses, and it must prevent the user from cheating by
+entering misleading hints. (Hint: Use the math.log function to compute the min-
+imum number of guesses needed after the lower and upper bounds are entered.)
+
+================================ Analysis ==============================================
+Here, we should let the computer guess the number for a certain number of times. This 
+maximum number of attempts can be calculated by the following formula.
+
+Maximum attempt = ceil (log(Upper bound - Lower bound))
+
+The computer should use the mid point of the current range as the guessing number. The 
+user should provide the computer with hints such as =, <, or >, so that the computer can
+make decision based on it.
+
+If the hint is "=", it means the computer has guessed successfully. In this case, the 
+program should terminate with a success message.
+
+If the hint is "<", it means the actual number is less than the predicted number.
+Therefore, the computer needs to guess a smaller number next time (if there is still a
+chance of further attempt). To do that, the computer needs to update the upper bound by
+subtracting 1 from its current value. Then, it should guess again using the mid-point 
+principle based on the current range, like before.
+
+If the hint is ">", it means the actual number is greater than the predicted number.
+Therefore, the computer needs to guess a larger number next time (if there is still a 
+chance of further attempt). To do that, the computer needs to update the lower bound by 
+adding 1 with its current value. Then, it should guess again using the mid-point prin-
+ciple based on the current range, like before.
+
+Ideally (i.e. if not cheated/misleaded by the user) the computer should guess successfully 
+within the maximum number of attempts allocated for it. That's why if the computer fails 
+to guess correctly within the specified maximum number of attempts, we may assume that it 
+is possibly due to the misconduct of the user, and consequently we can terminate the 
+program after showing an appropriate message indicating the unsuccessful attempts of the 
+computer and possible misconduct of the user.
+
+================================== Design ============================================
+We can design the number guessing process as a function. The pseudocode of the function
+can be expressed as follows.
+
+FUNCTION guess_number(INT lower_bound, INT upper_bound)
+    // Get the ideal number of maximum attempts
+    SET max_attempts to ceil(log2(upper_bound - lower_bound + 1))
+
+    // Initialize the counter
+    SET count to 0
+
+    // Initialize the flag
+    SET flag to 0
+
+    // Perform guessing and check it
+    WHILE count LESS THAN max_attempts
+        // Update the counter
+        SET count to count + 1
+
+        // Compute the guessing number
+        // Here the division should be an integer division
+        COMPUTE guess as (lower_bound + upper_bound) / 2
+
+        // Display the guess
+        PRINT "The number is ", guess
+
+        // Take feedback or hints from the user
+        READ "=" or "<" or ">" as hint
+
+        // Proceed according to the hint
+        IF hint EQUAL TO "="
+            PRINT "You have guessed correctly in", count, "attempts."
+            SET flag to 1
+            BREAK
+        ELSE IF hint EQUAL TO "<"
+            SET upper_bound to guess - 1
+        ELSE IF hint EQUAL TO ">"
+            SET lower_bound to guess + 1
+        END IF
+    END WHILE
+
+    // Display this message
+    // if the computer fails to guess correctly
+    // within the specified maximum number of attempts
+    IF flag NOT EQUAL TO 1
+        PRINT "Failed to guess correctly within the maximum number of attempts, and you might cheated."
+    END IF
+END FUNCTION
+
+Now, we would like to design a main function from which the guess_number function will
+be called. The pseudocode of the main function can be expressed as follows.
+
+FUNCTION main()
+    // Take lower and upper bounds as inputs
+    // The inputs should be integers
+    READ the lower bound as lower_bound
+    READ the upper bound as upper_bound
+
+    // Call the function to guess the number
+    CALL guess_number with lower_bound, upper_bound
+END FUNCTION
+
+Finally, there would be an execution point of the program as follows.
+
+CALL main
+
+=======================================================================================

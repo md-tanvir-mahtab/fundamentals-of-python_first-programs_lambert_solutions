@@ -1,0 +1,16 @@
+================================== Basic Info =========================================
+Author (Motivated by the book's author): Md. Tanvir Mahtab
+Date: 2022-02-08
+Purpose: This file contains a brief overview of the testing principle for the project.
+
+================================== Testing Principle ===================================
+The valid inputs to this program are positive integers and floating-point numbers.
+The display of Python’s own most accurate estimate of the square root provides
+a benchmark for assessing the correctness of our own algorithm. We should at
+least provide a couple of perfect squares, such as 4 and 9, as well as numbers
+whose square roots are inexact, such as 2 and 3. A number between 1 and 0,
+such as .25, should also be included. Because the accuracy of our algorithm
+also depends on the size of the tolerance, we might alter this value during testing
+as well.
+
+========================================================================================

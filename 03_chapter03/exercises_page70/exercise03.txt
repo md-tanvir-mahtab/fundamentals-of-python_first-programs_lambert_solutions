@@ -1,0 +1,11 @@
+Author: Md. Tanvir Mahtab
+Date: 2022-01-15
+
+Question:
+    Explain the role of the variable in the header of a for loop.
+
+Answer:
+    The variable in the header of a "for" loop can be used to-
+    1. execute a particular set of instructions a specific number of times
+    2. count something
+    3. traverse through a data sequence

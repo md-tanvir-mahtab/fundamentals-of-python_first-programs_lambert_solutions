@@ -1,0 +1,10 @@
+Author: Md. Tanvir Mahtab
+Date: 2022-02-03
+
+Question:
+    Does the Boolean expression count > 0 and total // count > 0 contain a
+    potential error? If not, why not?
+
+Answer:
+    The given Boolean expression doesn't contain any potential error. Because the 
+    precedence rule of operators have been followed here accordingly,

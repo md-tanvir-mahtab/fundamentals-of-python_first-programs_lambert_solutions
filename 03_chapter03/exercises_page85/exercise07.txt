@@ -1,0 +1,9 @@
+Author: Md. Tanvir Mahtab
+Date: 2022-02-03
+
+Question:
+    Explain the role of the trailing else part of an extended if statement.
+
+Answer:
+    In the case of an extended "if statement" the instructions under the "else block" 
+    is executed if the condition following the "if clause" turns to be false.

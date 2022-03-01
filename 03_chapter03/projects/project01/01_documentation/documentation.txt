@@ -1,0 +1,56 @@
+================================ Basic Info ===========================================
+Author: Md. Tanvir Mahtab
+Date: 2022-02-09
+Purpose: This file contains a brief documentation of the project.
+
+================================ Problem ==============================================
+Write a program that accepts the lengths of three sides of a triangle as inputs.
+The program output should indicate whether or not the triangle is an equilateral
+triangle.
+
+================================ Analysis =============================================
+Let, a, b, and c are the lengths of three sides of a triangle.
+Here, if a = b = c (i.e. a = b and b = c), we can conclude that the triangle is 
+equilateral.
+We have to implement this logic in our program.
+
+================================ Design ===============================================
+We can design the algorithm of checking a triangle (based on its three sides) if it is 
+equilateral  as a function. The pseudocode of the function can be expressed as follows.
+
+FUNCTION is_equilateral(FLOAT side_a, FLOAT side_b, FLOAT side_c)
+    // Return True if all the sides are equal
+    // otherwise return False
+    IF side_a EQUAL TO side_b AND side_b EQUAL TO side_c
+        RETURN TRUE
+    ELSE
+        RETURN FALSE
+    END IF
+END FUNCTION
+
+Now, we would like to design a main function from which the is_equilateral function 
+will be called. The pseudocode of the main function is as follows.
+
+FUNCTION main()
+    // Take the lengths of the sides of the triangle as inputs
+    // Inputs should be floating-point numbers
+    READ the length of a side of the triangle as side_a
+    READ the length of another side of the triangle as side_b
+    READ the length of the remaining side of the triangle as side_c
+
+    // Call the function to check if the triangle is equilateral
+    CALL is_equilateral WITH side_a, side_b, side_c RETURNING result
+
+    // Display if the triangle is equilateral
+    IF result
+        PRINT "The triangle is equilateral."
+    ELSE
+        PRINT "The triangle is not equilateral."
+    END IF
+END FUNCTION
+
+Finally, there would be an execution point of the program as follows.
+
+CALL main
+
+====================================================================================

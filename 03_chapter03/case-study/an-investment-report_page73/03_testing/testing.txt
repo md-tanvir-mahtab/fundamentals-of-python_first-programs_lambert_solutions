@@ -1,0 +1,34 @@
+=============================== Basic Info =========================================
+Author (Motivated by the book's author): Md. Tanvir Mahtab
+Date: 2022-02-02
+Purpose: This file contains a brief overview of the testing principle for the project.
+
+=============================== Testing Principle ==================================
+When testing a program that contains a loop, we should focus first on the input
+that determines the number of iterations. In our program, this value is the number
+of years. We enter a value that yields the smallest possible number of iterations,
+then increase this number by 1, then use a slightly larger number, such as 5, and
+finally we use a number close to the maximum expected, such as 50 (in our problem
+domain, probably the largest realistic period of an investment). The values of the
+other inputs, such as the investment amount and the rate in our program, should
+be reasonably small and stay fixed for this phase of the testing. If the program pro-
+duces correct outputs for all of these inputs, we can be confident that the loop is
+working correctly.
+In the next phase of testing, we examine the effects of the other inputs on the
+results, including their format. We know that the other two inputs to our programs,
+the investment and the rate, already produce correct results for small values. A rea-
+sonable strategy might be to test a large investment amount with the smallest and
+largest number of years and a small rate, and then with the largest number of years
+and the largest reasonable rate. Following table organizes these sets of test data for 
+the program.
+
+Investment      Years       Rate
+    100.00          1          5
+    100.00          2          5
+    100.00          5          5
+    100.00         50          5
+  10000.00          1          5
+  10000.00         50          5
+  10000.00         50         20
+
+======================================================================================

@@ -1,0 +1,109 @@
+================================= Basic Info ===========================================
+Author (Motivated by the book's author): Md. Tanvir Mahtab
+Date: 2022-02-08
+Purpose: This file contains a brief documentation of the project.
+
+================================= Problem ==============================================
+Write a program that computes square roots.
+
+================================= Analysis =============================================
+The input to this program is a positive floating-point number or an integer. The out-
+put is a floating-point number representing the square root of the input number. For
+purposes of comparison, we also output Python’s estimate of the square root using
+math.sqrt . Here is the proposed user interface:
+
+Enter a positive number: 3
+The program's estimate: 1.73205081001
+Python's estimate:      1.73205080757
+
+================================= Design ===============================================
+In the seventeenth century, Sir Isaac Newton discovered an algorithm for approximat-
+ing the square root of a positive number. Recall that the square root y of a positive
+number x is the number y such that y^2 = x . Newton discovered that if one’s initial
+estimate of y is z, then a better estimate of y can be obtained by taking the aver-
+age of z together with x / z. The estimate can be transformed by this rule again and
+again, until a satisfactory estimate is reached.
+A quick session with the Python interpreter shows this method of successive approxi-
+mations in action. We let x be 25 and our initial estimate, z , be 1. We then use New-
+ton’s method to reset z to a better estimate and examine z to check it for closeness
+to the actual square root, 5. Here is a transcript of our interaction:
+
+>>> x = 25
+>>> y = 5                   # The actual square root of x
+>>> z = 1                   # Our initial approximation
+>>> z = (z + x / z) / 2     # Our first improvement
+>>> z
+13.0
+>>> z = (z + x / z) / 2     # Our second improvement
+>>> z
+7.0
+>>> z = (z + x / z) / 2     # Our third improvement – got it!
+>>> z
+5.0
+
+After three transformations, the value of z is exactly equal to 5, the square root of
+25. To include cases of numbers, such as 2 and 10, with irrational square roots, we
+can use an initial guess of 1.0 to produce floating-point results.
+
+We now develop an algorithm to automate the process of successive transforma-
+tions, because there might be many of them, and we don’t want to write them all.
+Exactly how many of these operations are required depends on how close we want
+our final approximation to be to the actual square root. This closeness value, called
+the tolerance, can be compared to the difference between the value of x and the
+square of our estimate at any given time. While this difference is greater than the tol-
+erance, the process continues; otherwise, it stops. The tolerance is typically a small
+value, such as 0.000001.
+
+The algorithm of computing the square root of a given (by the user) number can be designed
+as a function. The function takes the number as an argument, uses a loop to apply Newton’s
+method to compute the square root, and returns this value. The pseudocode of the function
+can be expressed as follows.
+
+FUNCTION compute_square_root(FLOAT input_number)
+    // Initialize variables
+    SET input_number to input_number
+    SET tolerance to 0.000001
+    SET estimate to 1.0
+
+    // Approximate the square root
+    WHILE True
+        SET estimate to (estimate + x / estimate) / 2
+        SET difference to abs(x - estimate ** 2)
+        IF difference LESS THAN OR EQUAL TO tolerance
+            BREAK
+        END IF
+    END WHILE
+
+    // Return the estimate
+    RETURN estimate
+END FUNCTION
+
+Here, because our initial estimate is 1.0, the loop must compute at least one new 
+estimate. Therefore, we use a "while True" loop. This loop transforms the estimate 
+before determining whether it is close enough to the tolerance value to stop the 
+process. The process should stop when the difference between the square of our estimate 
+and the original number becomes less than or equal to the tolerance value. Note that this
+difference may be positive or negative, so we use the abs function to obtain its abso-
+lute value before examining it.
+A more orthodox use of the while loop would compare the difference to the toler-
+ance in the loop header. However, the difference must then be initialized before
+the loop to a large and rather meaningless value. The algorithm presented here
+captures the logic of the method of successive approximations more cleanly and
+simply.
+
+Now, We would like to design a main function from which the compute_square_root function 
+will be called. The pseudocode of the main function is as follows.
+
+FUNCTION main()
+    // Take input (as a floating-point number) from the user
+    READ a positive number as input_number
+
+    // Call the function to compute the square root
+    CALL compute_square_root WITH input_number RETURNING square_root
+END FUNCTION
+
+Finally, there would be an execution point of the program as follows.
+
+CALL main
+
+======================================================================================

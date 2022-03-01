@@ -1,0 +1,12 @@
+Author: Md. Tanvir Mahtab
+Date: 2022-02-08
+
+Question:
+    Describe the purpose of the break statement and the type of problem for which it is
+    well suited.
+
+Answer:
+    The purpose of the break statement is to terminate a loop. Typically we use the
+    break statement to terminate the loop when some expected condition is met. For
+    example, we can use a "while" loop to take an input and as soon as we can make
+    sure that the input is valid we can terminate the loop using the break statement.

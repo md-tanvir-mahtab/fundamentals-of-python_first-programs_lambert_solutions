@@ -1,0 +1,98 @@
+================================== Basic Info ==========================================
+Author: Md. Tanvir Mahtab
+Date: 2022-02-27
+Purpose: This file contains a brief documentation of the project.
+
+================================== Problem =============================================
+The credit plan at TidBit Computer Store specifies a 10% down payment and
+an annual interest rate of 12%. Monthly payments are 5% of the listed purchase
+price, minus the down payment. Write a program that takes the purchase price
+as input. The program should display a table, with appropriate headers, of a pay-
+ment schedule for the lifetime of the loan. Each row of the table should contain
+the following items:
+    • the month number (beginning with 1)
+    • the current total balance owed
+    • the interest owed for that month
+    • the amount of principal owed for that month
+    • the payment for that month
+    • the balance remaining after payment
+The amount of interest for a month is equal to balance * rate / 12. The amount of
+principal for a month is equal to the monthly payment minus the interest owed.
+
+================================== Analysis ============================================
+Here,
+Down payment = Purchase price * 0.1
+Monthly interest = Current balance * 0.12 / 12
+Monthly payment = (Purchase price - Down payment) * 0.05
+Monthly principal = Monthly payment - Monthly interest
+Remaining balance = Current balance - Monthly principal
+
+We have to implement these formulas in our program.
+
+================================== Design ==============================================
+We can design a function to compute and display different attributes of the credit
+status. The pseudocode of the function can be expressed as follows.
+
+FUNCTION credit_status(FLOAT purchase_price)
+    // Specify initial value
+    // of the remaining balance
+    SET remaining_balance to purchase_price
+
+    // Declare a variable
+    // to hold the number of month
+    SET month to 0
+
+    // Display the header row of the table
+    // Each column should be right-justified
+    PRINT "Month", "Current Balance", "Monthly Interest", "Monthly Payment", "Monthly Principal", "Remaining Balance"
+    
+    // Compute and display different
+    // attributes of the credit status
+    WHILE remaining_balance GREATER THAN 0.0
+        // Update the month
+        SET month to month + 1
+
+        // Update the current balance
+        SET current_balance to remaining_balance
+
+        // Compute monthly interest
+        COMPUTE monthly_interest as current_balance * 0.12 / 12
+
+        // Compute down payment
+        COMPUTE down_payment as purchase_price * 0.1
+
+        // Compute monthly payment
+        COMPUTE monthly_payment as (purchase_price - down_payment) * 0.05
+
+        // Compute monthly principal
+        COMPUTE monthly_principal as monthly_payment - monthly_interest
+
+        // Update remaining balance
+        SET remaining_balance to current_balance - monthly_principal
+
+        // Display the attributes
+        // Each column should be right-justified
+        PRINT month, current_balance, monthly_interest, monthly_payment, monthly_principal, remaining_balance
+    END WHILE
+END FUNCTION
+
+Now we would like to design a main function from which the credit_status function will be
+called. The pseudocode of the main function is as follows.
+
+FUNCTION main()
+    // Take input
+    // The purchase price should be taken
+    // as a floating-point number
+    READ the purchase price as purchase_price PROMPTING WITH "Enter the purchase price: "
+
+    // Call the function to compute
+    // and display different attributes
+    // of the credit status
+    CALL credit_status WITH purchase_price
+END FUNCTION
+
+Finally, there would be an execution point of the program as follows.
+
+CALL main
+
+======================================================================================

@@ -1,0 +1,70 @@
+================================== Basic Info ==========================================
+Author: Md. Tanvir Mahtab
+Date: 2022-02-12
+Purpose: This file contains a brief documentation of the project.
+
+================================== Problem =============================================
+A standard science experiment is to drop a ball and see how high it bounces.
+Once the “bounciness” of the ball has been determined, the ratio gives a bounci-
+ness index. For example, if a ball dropped from a height of 10 feet bounces 6 feet
+high, the index is 0.6, and the total distance traveled by the ball is 16 feet after
+one bounce. If the ball were to continue bouncing, the distance after two bounces
+would be 10 ft + 6 ft + 6 ft + 3.6 ft = 25.6 ft . Note that the distance traveled for
+each successive bounce is the distance to the floor plus 0.6 of that distance as the
+ball comes back up. Write a program that lets the user enter the initial height
+from which the ball is dropped and the number of times the ball is allowed to
+continue bouncing. Output should be the total distance traveled by the ball.
+
+================================== Analysis ============================================
+The distance traveled in each bounce can be calculated using the following formula.
+
+Distance = Initial height + Initial height * 0.6
+
+If we add all the distances traveled at each time (bounce), we can get total distance 
+traveled.
+
+================================== Design ==============================================
+Based on the logic of the analysis phase we can design a function that can calculate the 
+total distance traveled within a specified number of times from a given height. The pseu-
+docode of the function can be expressed as follows.
+
+FUNCTION calculate_distance(FLOAT initial_height, INT times)
+    // Initialize the total distance
+    SET total_distance to 0.0
+
+    // Compute the distance
+    FOR each time in times
+        COMPUTE distance as initial_height + initial_height * 0.6
+
+        // Update the total distance
+        SET total_distance to total_distance + distance
+
+        // Update the initial height
+        SET initial_height to initial_height * 0.6
+    END FOR
+
+    // Return the total distance
+    RETURN total_distance
+END FUNCTION
+
+Now, we would like to design a main function from which the calculate_distance function
+will be called. The pseudocode of the main function is as follows.
+
+FUNCTION main()
+    // Take initial height (a floating-point number) in feet and
+    // number of times (an integer) of bouncing as inputs
+    READ the initial height as initial_height
+    READ the number of times of bouncing as times
+
+    // Call the function to calculate the total distance
+    CALL calculate_distance with initial_height, times RETURNING total_distance
+
+    // Display the total distance
+    PRINT "Total distance traveled is", total_distance, "feet."
+END FUNCTION
+
+Finally, there would be an execution point of the program as follows.
+
+CALL main
+
+=======================================================================================

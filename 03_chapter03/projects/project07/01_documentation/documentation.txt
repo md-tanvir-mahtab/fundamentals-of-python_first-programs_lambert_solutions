@@ -1,0 +1,64 @@
+================================== Basic Info ==========================================
+Name: Md. Tanvir Mahtab
+Date: 2022-02-14
+Purpose: This file contains a brief documentation of the project.
+
+================================== Problem =============================================
+Teachers in most school districts are paid on a schedule that provides a salary
+based on their number of years of teaching experience. For example, a beginning
+teacher in the Lexington School District might be paid $30,000 the first year. For
+each year of experience after this first year, up to 10 years, the teacher receives a
+2% increase over the preceding value. Write a program that displays a salary sched-
+ule, in tabular format, for teachers in a school district. The inputs are the starting
+salary, the percentage increase, and the number of years in the schedule. Each row
+in the schedule should contain the year number and the salary for that year.
+
+================================== Analysis ============================================
+Here, for each year (from after the first year) the salary should be calculated by the
+following formula.
+
+Salary = Salary of the previous year + salary of the previous year * Percentage increase
+
+We have to implement this formula in our program.
+
+================================== Design ==============================================
+We can design a function to calculate the salary for each of the given years and display
+the results in a tabular format. The pseudocode of the function can be expressed as 
+follows.
+
+FUNCTION calculate_salary(FLOAT salary, FLOAT percentage_increase, INT years)
+    // Display the header row of the table
+    // Make each column right-aligned
+    PRINT "Year", "Salary"
+
+    // Calculate and display salaries
+    FOR year in 1 to years + 1
+        // Make each column right-aligned
+        PRINT year, salary
+
+        // Calculate salary for the next year
+        SET salary to salary + salary * percentage_increase
+    END FOR
+END FUNCTION
+
+Now, we would like to design a main function from which the calculate_salary function 
+will be called. The pseudocode of the main function is as follows.
+
+FUNCTION main()
+    // Take inputs
+    READ the starting salary as starting_salary
+    READ the percentage increase as percentage_increase
+    // Convert percentage to decimal
+    SET percentage_increase to percentage_increase / 100
+    READ the number of years as years
+
+    // Call the function to calculate
+    // and display salaries
+    CALL calculate_salary with starting_salary, percentage_increase, years
+END FUNCTION
+
+Finally, there would be an execution point of the program as follows.
+
+CALL main
+
+=======================================================================================

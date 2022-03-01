@@ -1,0 +1,37 @@
+Author: Md. Tanvir Mahtab
+Date: 2022-02-03
+
+Question:
+    Construct truth tables for the following Boolean expressions:
+    a. not (A or B)
+    b. not A and not B
+
+Answer:
+
+a. Truth table for "not (A or B)"
+
+-----------------------------------------------
+A     |   B    |   A or B  |   not (A or B)
+-----------------------------------------------
+False |  False |   False   |      True
+-----------------------------------------------
+False |  True  |   True    |      False
+-----------------------------------------------
+True  |  False |   True    |      False
+-----------------------------------------------
+True  |  True  |   True    |      False
+-----------------------------------------------
+
+b. Truth table for "not A and not B"
+
+---------------------------------------------------------
+A     |   B    |   not A   |   not B   | not A and not B
+---------------------------------------------------------
+False |  False |   True    |   True    | True
+---------------------------------------------------------
+False |  True  |   True    |   False   | False
+---------------------------------------------------------
+True  |  False |   False   |   True    | False
+---------------------------------------------------------
+True  |  True  |   False   |   False   | False
+---------------------------------------------------------

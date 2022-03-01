@@ -1,0 +1,85 @@
+================================== Basic Info =========================================
+Author: Md. Tanvir Mahtab
+Date: 2022-03-01
+Purpose: This file contains a brief documentation of the project.
+
+================================== Problem ============================================
+In the game of Lucky Sevens, the player rolls a pair of dice. If the dots add up to 7,
+the player wins $4; otherwise, the player loses $1. Suppose that, to entice the gull-
+ible, a casino tells players that there are lots of ways to win: (1, 6), (2, 5), and so
+on. A little mathematical analysis reveals that there are not enough ways to win
+to make the game worthwhile; however, because many people’s eyes glaze over
+at the first mention of mathematics, your challenge is to write a program that
+demonstrates the futility of playing the game. Your program should take as input
+the amount of money that the player wants to put into the pot, and play the game
+until the pot is empty. At that point, the program should print the number of
+rolls it took to break the player, as well as maximum amount of money in the pot.
+
+================================== Analysis and Design ================================
+We can design a function to compute and demonstrate the status of the Lucky Sevens game.
+The pseudcode of the function can be expressed as follows.
+
+FUNCTION show_game_status(FLOAT money)
+    // Declare a variable
+    // to hold the number of rolls
+    SET rolls to 0
+
+    // Declare a variable
+    // to hold the maximum amount of money
+    SET max_money to 0.0
+
+    // Play the game until
+    // the pot of money is empty
+    WHILE money GREATER THAN 0.0
+        // Update the number of rolls
+        SET rolls to rolls + 1
+
+        // Get the score for each dice
+        SET first_dice_score to a random integer IN [1, 6]
+        SET second_dice_score to a random integer IN [1, 6]
+
+        // Decide the result and get feedback
+        IF first_dice_score + second_dice_score EQUAL TO 7
+            // Get the reward
+            SET money to money + 4
+
+            // Update the maximum amount of money
+            IF money GREATER THAN max_money
+                SET max_money to money
+            END IF
+        ELSE
+            // Get the punishment
+            SET money to money - 1
+
+            // Update the maximum amount of money
+            IF money GREATER THAN max_money
+                SET max_money to money
+            END IF
+        END IF
+    END WHILE
+
+    // Display the total number of rolls
+    // and the maximum amount of money
+    PRINT "Total number of rolls:", rolls
+    PRINT "Maximum amount of money:", max_money
+END FUNCTION
+
+Now, we would like to design a main function from which the show_game_status function
+will be called. The pseudcode of the main function is as follows.
+
+FUNCTION main()
+    // Take input
+    // The amount of money should
+    // be taken as a floating-point number
+    READ the amount of money as money PROMPTING WITH "Enter the amount of money: "
+
+    // Call the function
+    // to play the game and get its status
+    CALL show_game_status WITH money
+END FUNCTION
+
+Finally, there would be an execution point of the program as follows.
+
+CALL main
+
+========================================================================================
