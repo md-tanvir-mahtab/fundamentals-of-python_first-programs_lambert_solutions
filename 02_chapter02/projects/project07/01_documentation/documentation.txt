@@ -1,0 +1,29 @@
+=========================== Basic Info =============================================
+Author: Md. Tanvir Mahtab
+Date: 2022-01-13
+Purpose: This file contains a brief documentation of the project.
+
+=========================== Problem ================================================
+Write a program that calculates and prints the number of minutes in a year.
+
+=========================== Analysis ===============================================
+Number of days in a year = 365
+Number of hours in a day = 24
+Number of minutes in an hour = 60
+Therefore, Number of minutes in a year = Number of days in a year * 
+                                           Number of hours in a day * 
+                                             Number of minutes in an hour
+                                       = 365 * 24 * 60
+
+We have to implement this formula in our code.
+
+=========================== Design =================================================
+We can write a function to calculate the number of minutes in a year. The pseudocode
+of the function can be expressed as follows.
+
+FUNCTION minutes_in_a_year()
+    # Return the number of minutes in a year
+    RETURN 365 * 24 * 60
+END FUNCTION
+
+===================================================================================

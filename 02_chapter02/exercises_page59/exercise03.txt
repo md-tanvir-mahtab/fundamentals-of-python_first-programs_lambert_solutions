@@ -1,0 +1,8 @@
+"""
+Author: Md. Tanvir Mahtab
+Date: 2022-01-01
+Question:
+    Explain how to display a directory of all of the functions in a given module.
+Answer:
+    By passing the name of the module into the "dir()" function.
+"""

@@ -1,0 +1,9 @@
+"""
+Author: Md. Tanvir Mahtab
+Date: 2022-01-01
+Question:
+    Explain how to display help information on a particular function in a given module.
+Answer:
+    By passing the name of the function into the "help()" function 
+    such as "help(module_name.function_name)".
+"""

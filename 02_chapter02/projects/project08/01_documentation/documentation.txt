@@ -1,0 +1,40 @@
+=========================== Basic Info ================================================
+Author: Md. Tanvir Mahtab
+Date: 2022-01-13
+Purpose: This file contains a brief documentation of the project.
+
+=========================== Problem ===================================================
+Light travels at 3 * 10^8 meters per second. A light-year is the distance a light beam
+travels in one year. Write a program that calculates and displays the value of a
+light-year.
+
+=========================== Analysis ==================================================
+Number of days in a year = 365
+Number of hours in a day = 24
+Number of minutes in an hour = 60
+Number of seconds in a minute = 60
+
+Therefore, Number of seconds in a year = Number of days in a year *
+                                           Number of hours in a day *
+                                             Number of minutes in an hour *
+                                               Number of seconds in a minute
+                                       = 365 * 24 * 60 * 60
+                                       = 31536000
+
+Speed of light = 3 * 10^8 meters per second
+
+Therefore, one light-year = Number of seconds in a year * Speed of light
+                          = 31536000 * 3 * 10^8 meters
+
+We have to implement this formula in our code.
+
+============================ Design ==================================================
+We can write a function to calculate the distance represented by one light-year.
+The pseudocode of the function can be expressed as follows.
+
+FUNCTION light_year()
+    # Return the light-year as per the formula "one light-year = 31536000 * 3 * 10^8 meters"
+    RETURN 31536000 * 3 * 10^8
+END FUNCTION
+
+======================================================================================

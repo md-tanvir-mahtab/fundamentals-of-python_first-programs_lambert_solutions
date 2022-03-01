@@ -1,0 +1,37 @@
+=========================== Basic Info =============================================
+Author: Md. Tanvir Mahtab
+Date: 2022-01-02
+
+=========================== Problem ================================================
+Five Star Retro Video rents VHS tapes and DVDs to the same connoisseurs who
+like to buy LP record albums. The store rents new videos for $3.00 a night, and
+oldies for $2.00 a night. Write a program that the clerks at Five Star Retro Video
+can use to calculate the total charge for a customer’s video rentals. The program
+should prompt the user for the number of each type of video and output the total
+cost.
+
+=========================== Analysis ===============================================
+Here, the total rental cost can be calculated using the following formula.
+
+Total rental cost = Rental cost for each new video * number of new videos +
+                    Rental cost for each oldie video * number of oldie videos
+
+We have to implement this formula in our code.
+
+=========================== Design =================================================
+The pseudocode of the function for calculating the total rental cost can be expressed
+as follows.
+
+FUNCTION calculate_rental_cost(INTEGER num_new_video, INTEGER num_oldie_video)
+    # Define rental costs for each type of video as constant
+    CONSTANT new_video_cost = 3.00
+    CONSTANT oldie_video_cost = 2.00
+
+    # Calculate total rental cost
+    total_cost = new_video_cost * num_new_video + oldie_video_cost * num_oldie_video
+
+    # Return the total cost
+    RETURN total_cost
+END FUNCTION
+
+====================================================================================

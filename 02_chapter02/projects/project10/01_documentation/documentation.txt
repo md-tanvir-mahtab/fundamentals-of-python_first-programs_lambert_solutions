@@ -1,0 +1,33 @@
+=============================== Basic Info ==========================================
+Author: Md. Tanvir Mahtab
+Date: 2022-01-13
+Purpose: This file contains a brief documentation of the project.
+
+=============================== Problem =============================================
+An employee’s total weekly pay equals the hourly wage multiplied by the total
+number of regular hours plus any overtime pay. Overtime pay equals the total
+overtime hours multiplied by 1.5 times the hourly wage. Write a program that
+takes as inputs the hourly wage, total regular hours, and total overtime hours and
+displays an employee’s total weekly pay.
+
+=============================== Analysis ============================================
+Here,
+Total overtime pay = Total overtime hours * (1.5 * hourly wage)
+Total weekly pay = Hourly wage * Total regular hours + Total overtime pay
+
+We have to implement these formulas in our code.
+
+=============================== Design ==============================================
+We can write a function to calculate the total weekly pay based on the given hourly 
+wage, total regular hours, and total overtime hours. The pseudocode of the function 
+can be expressed as follows.
+
+FUNCTION total_weekly_pay(FLOAT hourly_wage, FLOAT total_regular_hours, FLOAT total_overtime_hours)
+    # Calculate total overtime pay
+    total_overtime_pay = total_overtime_hours * (1.5 * hourly_wage)
+    
+    # Calculate and return total weekly pay
+    RETURN hourly_wage * total_regular_hours + total_overtime_pay
+END FUNCTION
+
+====================================================================================

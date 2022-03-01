@@ -1,0 +1,9 @@
+"""
+Author: Md. Tanvir Mahtab
+Date: 2022-01-01
+Question:
+    Explain the relationship between a function and its arguments.
+Answer:
+    Arguments are values passed into a function, which are then used by the internal code of the 
+    function to perform certain computation.
+"""

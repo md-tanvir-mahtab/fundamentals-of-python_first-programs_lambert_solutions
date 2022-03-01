@@ -1,0 +1,44 @@
+============================ Basic Info ============================================
+Author: Md. Tanvir Mahtab
+Date: 2022-01-02
+
+============================ Problem ===============================================
+Write a program that takes the radius of a sphere (a floating-point number) as
+input and then outputs the sphere’s diameter, circumference, surface area, and
+volume.
+
+============================ Analysis ==============================================
+Let, the radius of a sphere = r. Therefore, its
+diameter = 2 * r
+circumference = 2 * pi * r
+surface area = 4 * pi * r^2
+volume = (4/3) * pi * r^3
+
+We have to implement these formulas in our code.
+
+============================ Design ================================================
+We can write a function to calculate all of the requested attributes of a sphere
+based on its radius. The pseudocode of the function can be expressed as follows.
+
+FUNCTION calculate_attributes(FLOAT radius)
+    # Assign the value for the constant "pi"
+    CONSTANT pi = 3.14
+
+    # Calculate diameter
+    diameter = 2 * radius
+
+    # Calculate circumference
+    circumference = 2 * pi * radius
+
+    # Calculate surface area
+    surface_area = 4 * pi * (radius)^2
+
+    # Calculate volume
+    volume = (4/3) * pi * (radius)^3
+
+    # Return the attributes
+    RETURN diameter, circumference, surface_area, volume
+
+END FUNCTION
+
+====================================================================================

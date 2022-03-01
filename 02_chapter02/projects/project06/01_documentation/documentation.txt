@@ -1,0 +1,41 @@
+================================ Basic Info =======================================
+Author: Md. Tanvir Mahtab
+Date: 2022-01-11
+Purpose: This file contains a brief documentation of the project.
+
+================================ Problem ==========================================
+The kinetic energy of a moving object is given by the formula KE = (1/2)mv^2
+where m is the object’s mass and v is its velocity. Modify the program you created
+in Project 5 so that it prints the object’s kinetic energy as well as its momentum.
+
+For conveniance, the problem of the project 5 is as follows.
+
+An object’s momentum is its mass multiplied by its velocity. Write a program
+that accepts an object’s mass (in kilograms) and velocity (in meters per second) as
+inputs and then outputs its momentum.
+
+================================ Analysis =========================================
+The momentum of an object = Mass of the object * Velocity of the object
+The kinetic energy of an object = (1/2) * Mass of the object * (Velocity of the object)^2
+
+We have to implement these formulas in our code.
+
+================================ Design ===========================================
+We can define a function that can calculate the momentum of an object based on its 
+given mass and velocity. The pseudocode of the function can be written as follows.
+
+FUNCTION calculate_momentum(FLOAT mass, FLOAT velocity)
+    # Return the momentum as the product of mass and velocity
+    RETURN mass * velocity
+END FUNCTION
+
+Similarly, we can define a function that can calculate the kinetic energy of an object 
+based on its given mass and velocity. The pseudocode of the function can be written as 
+follows.
+
+FUNCTION calculate_kinetic_energy(FLOAT mass, FLOAT velocity)
+    # Return the kinetic energy as per the formula KE = (1/2) * mass * (velocity)^2
+    RETURN (1/2) * mass * (velocity)^2
+END FUNCTION
+
+===================================================================================

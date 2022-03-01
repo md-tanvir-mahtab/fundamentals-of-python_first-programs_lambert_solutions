@@ -1,0 +1,25 @@
+================================ Basic Info =======================================
+Author: Md. Tanvir Mahtab
+Date: 2022-01-11
+Purpose: This file contains a brief documentation of the project.
+
+================================ Problem ==========================================
+An object’s momentum is its mass multiplied by its velocity. Write a program
+that accepts an object’s mass (in kilograms) and velocity (in meters per second) as
+inputs and then outputs its momentum.
+
+================================ Analysis =========================================
+The momentum of an object = Mass of the object * Velocity of the object
+
+We have to implement this formula in our code.
+
+================================ Design ===========================================
+We can define a function that can calculate the momentum of an object based on its
+given mass and velocity. The pseudocode of the function can be written as follows.
+
+FUNCTION calculate_momentum(FLOAT mass, FLOAT velocity)
+    # Return the momentum as the product of mass and velocity
+    RETURN mass * velocity
+END FUNCTION
+
+===================================================================================

@@ -1,0 +1,26 @@
+
+================================ Basic Info ====================================
+Author: Md. Tanvir Mahtab
+Date: 2022-01-02
+
+================================ Problem =======================================
+You can calculate the surface area of a cube if you know the length of an edge.
+Write a program that takes the length of an edge (an integer) as input and prints
+the cube’s surface area as output.
+
+================================ Analysis ======================================
+We can get the surface area of a cube by squaring the length of an edge of the cube.
+That means, the surface area of a cube = (The length of an edge)^2
+
+We have to implement this formula in our code.
+
+================================ Design =========================================
+The pseudocode of the function for calulating the surface area of a cube can be 
+expressed as follows.
+
+FUNCTION calculate_area(edge_length)
+    # Return the surface area i.e. the squred value of the length of the edge
+    RETURN (edge_length)^2
+END FUNCTION
+
+=================================================================================

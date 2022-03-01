@@ -1,0 +1,32 @@
+============================= Basic Info ===========================================
+Author: Md. Tanvir Mahtab
+Date: 2022-01-13
+Purpose: This file contains a brief documentation of the project.
+
+============================= Problem ==============================================
+Write a program that takes as input a number of kilometers and prints the corre-
+sponding number of nautical miles. Use the following approximations:
+ • A kilometer represents 1/10,000 of the distance between the North Pole and the
+   equator.
+ • There are 90 degrees, containing 60 minutes of arc each, between the North Pole
+   and the equator.
+ • A nautical mile is 1 minute of an arc.
+
+ ============================ Analysis =============================================
+ The formula for converting kilometers to nautical miles is as follows.
+ 
+ Nautical miles = Kilometers * 90 * 60 / 10000
+
+ We have to implement this formula in our code.
+
+ ============================ Design ===============================================
+ We can write a function that can convert kilometers to nautical miles based on the 
+ given number of kilometers. The pseudocode of the function can be expressed as 
+ follows.
+
+ FUNCTION km_to_nm(FLOAT kilometers)
+    # convert km to nm and return it
+    RETURN kilometers * 90 * 60 / 10000
+ END FUNCTION
+
+ ===================================================================================
